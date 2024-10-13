@@ -8,6 +8,11 @@ The live version of this application can be viewed here: [Todo App](https://go-r
 
 # Demo 
 
+
+![output](https://github.com/user-attachments/assets/32dadfd3-75d5-4e37-85af-643e2f206f51)
+
+
+
 ### Installation and Setup
 
 1. Clone the repository:
