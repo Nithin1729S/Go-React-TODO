@@ -53,7 +53,7 @@ func main() {
 
 	defer client.Disconnect(context.Background())
 
-	// Ping the primary node to check the connection
+	// Ping the primary node to check the connection..
 	err = client.Ping(ctx, nil)
 	if err != nil {
 		log.Fatal("Failed to ping MongoDB:", err)
