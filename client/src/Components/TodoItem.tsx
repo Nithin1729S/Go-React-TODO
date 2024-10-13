@@ -1,9 +1,10 @@
-import { Badge, Box, Flex, Spinner, Text } from "@chakra-ui/react";
+import { Badge, Box, Flex, Spinner, Text,useColorModeValue } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import { Todo } from "./TodoList";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { BASE_URL } from "../App";
+
 
 const TodoItem = ({ todo }: { todo: Todo }) => {
     const queryClient=useQueryClient();
@@ -50,7 +51,9 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
         }
     })
 
-   
+    const completedTextColor = useColorModeValue("black", "green.400"); // Light and dark mode colors for completed text
+    const incompleteTextColor = useColorModeValue("black", "yellow.300"); // Light and dark mode colors for incomplete text
+
 	return (
 		<Flex gap={2} alignItems={"center"}>
 			<Flex
@@ -63,19 +66,19 @@ const TodoItem = ({ todo }: { todo: Todo }) => {
 				justifyContent={"space-between"}
 			>
 				<Text
-					color={todo.completed ? "green.200" : "yellow.100"}
+					color={todo.completed ? completedTextColor : incompleteTextColor} // Use the dynamic color based on completed status
 					textDecoration={todo.completed ? "line-through" : "none"}
 				>
 					{todo.body}
 				</Text>
 				{todo.completed && (
 					<Badge ml='1' colorScheme='green'>
-						Done
+						Completed
 					</Badge>
 				)}
 				{!todo.completed && (
 					<Badge ml='1' colorScheme='yellow'>
-						In Progress
+						Ongoing
 					</Badge>
 				)}
 			</Flex>

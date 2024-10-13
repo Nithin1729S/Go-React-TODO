@@ -38,8 +38,9 @@ const TodoList = () => {
 				my={2}
 				bgGradient='linear(to-l, #0b85f8, #00ffff)'
 				bgClip='text'
+                mb={7}
 			>
-				Today's Tasks
+				
 			</Text>
 			{isLoading && (
 				<Flex justifyContent={"center"} my={4}>

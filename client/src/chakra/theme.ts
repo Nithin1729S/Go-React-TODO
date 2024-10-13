@@ -13,7 +13,7 @@ const theme = extendTheme({
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		global: (props: any) => ({
 			body: {
-				backgroundColor: mode("gray.500", "")(props),
+				backgroundColor: mode("white", "black")(props),
 			},
 		}),
 	},

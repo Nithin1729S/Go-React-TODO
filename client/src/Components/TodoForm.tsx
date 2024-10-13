@@ -3,11 +3,13 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 import { BASE_URL } from "../App";
-
+import {  useColorMode } from "@chakra-ui/react";
+import { IoMoon } from "react-icons/io5";
+import { LuSun } from "react-icons/lu";
 const TodoForm = () => {
 	const [newTodo, setNewTodo] = useState("");
 
-
+    const { colorMode, toggleColorMode } = useColorMode();
     const queryClient=useQueryClient();
 
 	const {mutate:createTodo,isPending:isCreating}=useMutation({
@@ -51,7 +53,6 @@ const TodoForm = () => {
 					ref={(input) => input && input.focus()}
 				/>
 				<Button
-					mx={2}
 					type='submit'
 					_active={{
 						transform: "scale(.97)",
@@ -59,6 +60,11 @@ const TodoForm = () => {
 				>
 					{isCreating ? <Spinner size={"xs"} /> : <IoMdAdd size={30} />}
 				</Button>
+                <Flex alignItems={"center"} gap={3}>
+						<Button onClick={toggleColorMode}>
+							{colorMode === "light" ? <IoMoon /> : <LuSun size={20} />}
+						</Button>
+					</Flex>
 			</Flex>
 		</form>
 	);

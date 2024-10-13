@@ -1,38 +1,34 @@
-import { Box, Flex, Button, useColorModeValue, useColorMode, Text, Container } from "@chakra-ui/react";
-import { IoMoon } from "react-icons/io5";
-import { LuSun } from "react-icons/lu";
+import { Box, Flex, useColorModeValue, Text, Container } from "@chakra-ui/react";
 
 export default function Navbar() {
-	const { colorMode, toggleColorMode } = useColorMode();
+
+	// Define gradient values based on color mode
+	const textGradient = useColorModeValue(
+		"linear(to-l, #7928CA, #FF0080)",  // Light mode gradient
+		"linear(to-l, #7928CA, #FF0080)"   // Dark mode gradient
+	);
 
 	return (
 		<Container maxW={"900px"}>
-			<Box bg={useColorModeValue("gray.400", "gray.700")} px={4} my={4} borderRadius={"5"}>
+			<Box bg={useColorModeValue("white", "black")} px={4} my={4} borderRadius={"5"}>
 				<Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
 					{/* LEFT SIDE */}
-					<Flex
-						justifyContent={"center"}
-						alignItems={"center"}
-						gap={3}
-						display={{ base: "none", sm: "flex" }}
-					>
-						<img src='/react.png' alt='logo' width={50} height={50} />
-						<Text fontSize={"40"}>+</Text>
-						<img src='/go.png' alt='logo' width={40} height={40} />
-						<Text fontSize={"40"}>=</Text>
-						<img src='/explode.png' alt='logo' width={50} height={50} />
+					<Flex alignItems={"center"} justifyContent={"center"} flexGrow={1}>
+						<Text
+							fontSize={"4xl"}
+							textTransform={"uppercase"}
+							fontWeight={"bold"}
+							textAlign={"center"}
+							my={2}
+							bgGradient={textGradient} // Apply the dynamic gradient here
+							bgClip='text'
+						>
+							TODO List
+						</Text>
 					</Flex>
 
 					{/* RIGHT SIDE */}
-					<Flex alignItems={"center"} gap={3}>
-						<Text fontSize={"lg"} fontWeight={500}>
-							Daily Tasks
-						</Text>
-						{/* Toggle Color Mode */}
-						<Button onClick={toggleColorMode}>
-							{colorMode === "light" ? <IoMoon /> : <LuSun size={20} />}
-						</Button>
-					</Flex>
+					
 				</Flex>
 			</Box>
 		</Container>
