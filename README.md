@@ -11,8 +11,6 @@ The live version of this application can be viewed here: [Todo App](https://go-r
 
 ![output](https://github.com/user-attachments/assets/32dadfd3-75d5-4e37-85af-643e2f206f51)
 
-Youtube Demo Link: https://youtube.com/shorts/5AWh5q913k4
-
 ### Installation and Setup
 
 1. Clone the repository:
